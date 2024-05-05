@@ -4,16 +4,17 @@ import Link from "next/link";
 import React from "react";
 
 const BlogLayoutThree = ({ blog }) => {
+  const postUrl = 'blogs/'+blog.slug;
   return (
     <div className="group flex flex-col items-center text-dark dark:text-light">
-      <Link href={blog.url} className="h-full rounded-xl overflow-hidden">
+      <Link href={postUrl} className="h-full rounded-xl overflow-hidden">
         <Image
-          src={blog.image.filePath.replace("../public", "")}
-          placeholder="blur"
-          blurDataURL={blog.image.blurhashDataUrl}
-          alt={blog.title}
-          width={blog.image.width}
-          height={blog.image.height}
+          src={blog.jetpack_featured_media_url}
+          //placeholder="blur"
+          //blurDataURL={blog.image.blurhashDataUrl}
+          alt={blog.title.rendered}
+          width={100}
+          height={100}
           className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
           sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
         />
@@ -23,7 +24,7 @@ const BlogLayoutThree = ({ blog }) => {
         <span className="uppercase text-accent dark:text-accentDark font-semibold text-xs sm:text-sm">
           {blog.tags[0]}
         </span>
-        <Link href={blog.url} className="inline-block my-1">
+        <Link href={postUrl} className="inline-block my-1">
           <h2 className="font-semibold capitalize  text-base sm:text-lg">
             <span
               className="bg-gradient-to-r from-accent/50 to-accent/50  dark:from-accentDark/50
@@ -31,13 +32,13 @@ const BlogLayoutThree = ({ blog }) => {
               bg-[length:0px_6px]
               group-hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 "
             >
-              {blog.title}
+              {blog.title.rendered}
             </span>
           </h2>
         </Link>
 
         <span className="capitalize text-gray dark:text-light/50 font-semibold text-sm  sm:text-base">
-          {format(new Date(blog.publishedAt), "MMMM dd, yyyy")}
+          {format(new Date(blog.date), "MMMM dd, yyyy")}
         </span>
       </div>
     </div>

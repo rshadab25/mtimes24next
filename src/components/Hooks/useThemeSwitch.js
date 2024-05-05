@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 export function useThemeSwitch() {
-  const preferDarkQuery = "(prefers-color-schema:dark)";
+  const preferDarkQuery = "(prefers-color-schema:white)";
   const storageKey = "theme";
 
   const toggleTheme = (theme) => {
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
@@ -23,7 +23,7 @@ export function useThemeSwitch() {
     return window.matchMedia(preferDarkQuery).matches ? "dark" : "light";
   };
 
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);

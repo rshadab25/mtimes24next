@@ -1,8 +1,8 @@
 export default function manifest() {
     return {
-      name: 'Next.js App',
-      short_name: 'Next.js App',
-      description: 'Next.js App',
+      name: 'Mtimes24',
+      short_name: 'Mtimes24',
+      description: 'Extend local to Global',
       start_url: '/',
       display: 'standalone',
     //   background_color: '#fff',

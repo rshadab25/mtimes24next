@@ -3,14 +3,10 @@ import React from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 
-
-const mdxComponents = {
-    Image
+export async function convertInHtml(blogContent) {
+  return {__html: {blogContent}};
 }
-
 const RenderMdx = ({blog}) => {
-
-    const MDXContent = useMDXComponent(blog.body.code)
 
   return (
     <div className='col-span-12  lg:col-span-8 font-in prose sm:prose-base md:prose-lg max-w-max
@@ -33,9 +29,11 @@ const RenderMdx = ({blog}) => {
     
 
 
-    '> 
-        <MDXContent components={mdxComponents}/>
+    '
+    dangerouslySetInnerHTML={{ __html: blog.content.rendered }}
+    > 
     </div>
+       
   )
 }
 
