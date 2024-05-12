@@ -9,7 +9,6 @@ async function getPosts() {
 import HomeCoverSection from "../components/Home/HomeCoverSection";
 import FeaturedPosts from "../components/Home/FeaturedPosts";
 import RecentPosts from "../components/Home/RecentPosts";
-import { Alegreya_Sans_SC } from "next/font/google";
 
 export default async function Home() {
   const allBlogs = await getPosts();
