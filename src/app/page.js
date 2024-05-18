@@ -9,6 +9,7 @@ async function getPosts() {
 import HomeCoverSection from "../components/Home/HomeCoverSection";
 import FeaturedPosts from "../components/Home/FeaturedPosts";
 import RecentPosts from "../components/Home/RecentPosts";
+import Tickers from "../components/Home/Tickers";
 
 export default async function Home() {
   const allBlogs = await getPosts();
@@ -16,6 +17,7 @@ export default async function Home() {
     <main className="flex flex-col items-center justify-center">
       {/* <HomeCoverSection blogs={allBlogs} /> Temporary removing*/}
       {/* <FeaturedPosts blogs={allBlogs} /> Temporary removing */}
+      <Tickers blogs={allBlogs} />
       <RecentPosts blogs={allBlogs} />
 
 
