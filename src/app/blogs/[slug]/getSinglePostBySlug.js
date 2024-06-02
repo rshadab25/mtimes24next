@@ -48,3 +48,12 @@ export async function getSinglePostBySlug(slug) {
   const post = await response.json();
   return post[0];
 }
+
+export async function getAdPost() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?categories=72&page=1&per_page=1`, { next: { revalidate: 600 } }
+  );
+  //console.log(response);
+  const post = await response.json();
+  return post[0];
+}
