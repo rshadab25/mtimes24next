@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const BlogLayoutThree = ({ blog }) => {
-  const postUrl = 'blogs/'+blog.slug;
+  const postUrl = blog.slug;
   return (
     <div className="group flex flex-col items-center text-dark dark:text-light">
       <Link href={postUrl} className="h-full rounded-xl overflow-hidden">
