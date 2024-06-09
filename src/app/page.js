@@ -1,7 +1,7 @@
 //import {allBlogs} from "contentlayer/generated";
 async function getPosts() {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?categories_exclude=72`, { cache: 'no-store' }
+		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?categories_exclude=3`, { cache: 'no-store' }
 	);
 	const posts = await response.json();
 	return posts;
